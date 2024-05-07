@@ -56,6 +56,7 @@
 const express = require('express')
 const app = express();
 const db= require('./db');
+require('dotenv').config();
 
 const bodyParser=require('body-parser');
 app.use(bodyParser.json());
@@ -65,6 +66,7 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.send('Welcome to my swiggy... How i can help u')
 })
+const PORT=process.env.PORT||3001;
 
 
 // import person-router files
@@ -75,7 +77,7 @@ app.use('/person',personRoutes);
 const manueRoutes=require('./routes/manueRoutes');
 app.use('/manueitem',manueRoutes);
 
-app.listen(3001, ()=>{
+app.listen(PORT, ()=>{
   console.log("listening on port 3001");
 })
 
