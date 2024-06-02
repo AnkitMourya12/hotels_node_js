@@ -88,7 +88,7 @@ app.get('/',function (req, res) {
 
 // import person-router files
 const personRoutes=require('./routes/personRoutes');
-app.use('/person',localAuthMiddleware,personRoutes);
+app.use('/person',personRoutes);
 
 // import manu-routes  files
 const manueRoutes=require('./routes/manueRoutes');
